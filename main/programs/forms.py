@@ -1,9 +1,9 @@
 from django import forms
 
-from .models import Book
+from .models import Program
 
 
-class BookForm(forms.ModelForm):
+class ProgramForm(forms.ModelForm):
     class Meta:
-        model = Book
-        fields = ('title', 'publication_date', 'author', 'price', 'pages', 'book_type', )
+        model = Program
+        fields = ('name', 'description', 'location', 'codebase', 'last_commit_time', 'last_commit_user', )

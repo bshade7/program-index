@@ -1,27 +1,27 @@
-{% for book in books %}
+{% for program in programs %}
   <tr>
-    <td>{{ book.id }}</td>
-    <td>{{ book.title }}</td>
-    <td>{{ book.author }}</td>
-    <td>{{ book.get_book_type_display }}</td>
-    <td>{{ book.publication_date }}</td>
-    <td>{{ book.pages }}</td>
-    <td>{{ book.price }}</td>
+    <td>{{ program.id }}</td>
+    <td>{{ program.name }}</td>
+    <td>{{ program.description }}</td>
+    <td>{{ program.location }}</td>
+    <td>{{ program.get_program_codebase_display }}</td>
+    <td>{{ program.last_commit_time }}</td>
+    <td>{{ program.last_commit_user }}</td>
     <td style="width: 150px">
       <button type="button"
-              class="btn btn-warning btn-sm js-update-book"
-              data-url="{% url 'book_update' book.id %}">
+              class="btn btn-warning btn-sm js-update-program"
+              data-url="{% url 'program_update' program.id %}">
         <span class="glyphicon glyphicon-pencil"></span> Edit
       </button>
       <button type="button"
-              class="btn btn-danger btn-sm js-delete-book"
-              data-url="{% url 'book_delete' book.id %}">
+              class="btn btn-danger btn-sm js-delete-program"
+              data-url="{% url 'program_delete' program.id %}">
         <span class="glyphicon glyphicon-trash"></span> Delete
       </button>
     </td>
   </tr>
 {% empty %}
   <tr>
-    <td colspan="8" class="text-center bg-warning">No book</td>
+    <td colspan="8" class="text-center bg-warning">No program</td>
   </tr>
 {% endfor %}

@@ -3,38 +3,38 @@
 {% load static %}
 
 {% block javascript %}
-  <script src="{% static 'books/js/books.js' %}"></script>
+  <script src="{% static 'programs/js/programs.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-  <h1 class="page-header">Books</h1>
+  <h1 class="page-header">Programs</h1>
 
   <p>
-    <button type="button" class="btn btn-primary js-create-book" data-url="{% url 'book_create' %}">
+    <button type="button" class="btn btn-primary js-create-book" data-url="{% url 'program_create' %}">
       <span class="glyphicon glyphicon-plus"></span>
       New book
     </button>
   </p>
 
-  <table class="table" id="book-table">
+  <table class="table" id="program-table">
     <thead>
       <tr>
         <th>#</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Type</th>
-        <th>Publication date</th>
-        <th>Pages</th>
-        <th>Price</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Codebase</th>
+        <th>Last Commit Time</th>
+        <th>Last Commit User</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      {% include 'books/includes/partial_book_list.html' %}
+      {% include 'programs/includes/partial_program_list.html' %}
     </tbody>
   </table>
 
-  <div class="modal fade" id="modal-book">
+  <div class="modal fade" id="modal-program">
     <div class="modal-dialog">
       <div class="modal-content">
 

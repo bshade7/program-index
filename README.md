@@ -1,11 +1,11 @@
-# Simple Ajax Crud
+# Program Index
 
-Example used in the blog post [How to Implement CRUD Using Ajax and Json](https://simpleisbetterthancomplex.com/tutorial/2016/11/15/how-to-implement-a-crud-using-ajax-and-json.html)
+Example program that is intended to index programs located in SVN repositories.  Will also eventually contain pages to describe functions for each program as well as a "tagging" ability to allow category searching.
 
 ## Running Locally
 Clone the git repository.
 ```bash
-git clone https://github.com/bshade7/simple-ajax-crud.git
+git clone https://github.com/bshade7/program-index.git
 ```
 
 Install pipenv package for virtualenvironment and dependency management.
@@ -15,7 +15,7 @@ pip install pipenv
 
 Move into cloned project directory.
 ```bash
-cd simple-ajax-crud
+cd program-index
 ```
 
 Create virtual environment in the local directory.

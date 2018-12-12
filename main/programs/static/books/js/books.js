@@ -9,11 +9,11 @@ $(function () {
       type: 'get',
       dataType: 'json',
       beforeSend: function () {
-        $("#modal-book .modal-content").html("");
-        $("#modal-book").modal("show");
+        $("#modal-program .modal-content").html("");
+        $("#modal-program").modal("show");
       },
       success: function (data) {
-        $("#modal-book .modal-content").html(data.html_form);
+        $("#modal-program .modal-content").html(data.html_form);
       }
     });
   };
@@ -27,11 +27,11 @@ $(function () {
       dataType: 'json',
       success: function (data) {
         if (data.form_is_valid) {
-          $("#book-table tbody").html(data.html_book_list);
-          $("#modal-book").modal("hide");
+          $("#program-table tbody").html(data.html_program_list);
+          $("#modal-program").modal("hide");
         }
         else {
-          $("#modal-book .modal-content").html(data.html_form);
+          $("#modal-program .modal-content").html(data.html_form);
         }
       }
     });
@@ -41,16 +41,16 @@ $(function () {
 
   /* Binding */
 
-  // Create book
-  $(".js-create-book").click(loadForm);
-  $("#modal-book").on("submit", ".js-book-create-form", saveForm);
+  // Create program
+  $(".js-create-program").click(loadForm);
+  $("#modal-program").on("submit", ".js-program-create-form", saveForm);
 
-  // Update book
-  $("#book-table").on("click", ".js-update-book", loadForm);
-  $("#modal-book").on("submit", ".js-book-update-form", saveForm);
+  // Update program
+  $("#program-table").on("click", ".js-update-program", loadForm);
+  $("#modal-program").on("submit", ".js-program-update-form", saveForm);
 
-  // Delete book
-  $("#book-table").on("click", ".js-delete-book", loadForm);
-  $("#modal-book").on("submit", ".js-book-delete-form", saveForm);
+  // Delete program
+  $("#program-table").on("click", ".js-delete-program", loadForm);
+  $("#modal-program").on("submit", ".js-program-delete-form", saveForm);
 
 });

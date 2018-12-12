@@ -2,24 +2,24 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 
-from .models import Book
-from .forms import BookForm
+from .models import Program
+from .forms import ProgramForm
 
 
-def book_list(request):
-    books = Book.objects.all()
-    return render(request, 'books/book_list.html', {'books': books})
+def program_list(request):
+    programs = Program.objects.all()
+    return render(request, 'program/program_list.html', {'programs': programs})
 
 
-def save_book_form(request, form, template_name):
+def save_program_form(request, form, template_name):
     data = dict()
     if request.method == 'POST':
         if form.is_valid():
             form.save()
             data['form_is_valid'] = True
-            books = Book.objects.all()
-            data['html_book_list'] = render_to_string('books/includes/partial_book_list.html', {
-                'books': books
+            programs = Program.objects.all()
+            data['html_program_list'] = render_to_string('programs/includes/partial_program_list.html', {
+                'programs': programs
             })
         else:
             data['form_is_valid'] = False
@@ -28,34 +28,34 @@ def save_book_form(request, form, template_name):
     return JsonResponse(data)
 
 
-def book_create(request):
+def program_create(request):
     if request.method == 'POST':
-        form = BookForm(request.POST)
+        form = ProgramForm(request.POST)
     else:
-        form = BookForm()
-    return save_book_form(request, form, 'books/includes/partial_book_create.html')
+        form = ProgramForm()
+    return save_program_form(request, form, 'programs/includes/partial_program_create.html')
 
 
-def book_update(request, pk):
-    book = get_object_or_404(Book, pk=pk)
+def program_update(request, pk):
+    program = get_object_or_404(Program, pk=pk)
     if request.method == 'POST':
-        form = BookForm(request.POST, instance=book)
+        form = ProgramForm(request.POST, instance=program)
     else:
-        form = BookForm(instance=book)
-    return save_book_form(request, form, 'books/includes/partial_book_update.html')
+        form = ProgramForm(instance=program)
+    return save_program_form(request, form, 'programs/includes/partial_program_update.html')
 
 
-def book_delete(request, pk):
-    book = get_object_or_404(Book, pk=pk)
+def program_delete(request, pk):
+    program = get_object_or_404(Program, pk=pk)
     data = dict()
     if request.method == 'POST':
-        book.delete()
+        program.delete()
         data['form_is_valid'] = True
-        books = Book.objects.all()
-        data['html_book_list'] = render_to_string('books/includes/partial_book_list.html', {
-            'books': books
+        programs = Program.objects.all()
+        data['html_program_list'] = render_to_string('programs/includes/partial_program_list.html', {
+            'programs': programs
         })
     else:
-        context = {'book': book}
-        data['html_form'] = render_to_string('books/includes/partial_book_delete.html', context, request=request)
+        context = {'program': program}
+        data['html_form'] = render_to_string('programs/includes/partial_program_delete.html', context, request=request)
     return JsonResponse(data)

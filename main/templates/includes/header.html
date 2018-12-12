@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{% url 'home' %}">Bookstore</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Program Index</a>
     </div>
     <div class="collapse navbar-collapse" id="main-menu">
       <ul class="nav navbar-nav">
-        <li{% if request.path == '/books/' %} class="active"{% endif %}>
-          <a href="{% url 'book_list' %}">Books</a>
+        <li{% if request.path == '/programs/' %} class="active"{% endif %}>
+          <a href="{% url 'program_list' %}">Programs</a>
         </li>
       </ul>
     </div>
