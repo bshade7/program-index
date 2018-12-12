@@ -8,7 +8,7 @@ from .forms import ProgramForm
 
 def program_list(request):
     programs = Program.objects.all()
-    return render(request, 'program/program_list.html', {'programs': programs})
+    return render(request, 'programs/program_list.html', {'programs': programs})
 
 
 def save_program_form(request, form, template_name):

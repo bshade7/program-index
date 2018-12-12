@@ -4,10 +4,10 @@
     <td>{{ program.name }}</td>
     <td>{{ program.description }}</td>
     <td>{{ program.location }}</td>
-    <td>{{ program.get_program_codebase_display }}</td>
+    <td>{{ program.get_codebase_display }}</td>
     <td>{{ program.last_commit_time }}</td>
     <td>{{ program.last_commit_user }}</td>
-    <td style="width: 150px">
+    <td style="width: 200px">
       <button type="button"
               class="btn btn-warning btn-sm js-update-program"
               data-url="{% url 'program_update' program.id %}">
